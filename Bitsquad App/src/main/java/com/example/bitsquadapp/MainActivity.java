@@ -64,12 +64,12 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when sign in button is clicked
+     * Called when the login button is clicked
      * @param view
      */
-    public void signIn(View view){
-        Intent signInIntent = new Intent(this, LoginScreen.class);
-        startActivity(signInIntent);
+    public void toLoginScreen(View view){
+        Intent loginScreenIntent = new Intent(this, LoginScreen.class);
+        startActivity(loginScreenIntent);
     }
 
 }
