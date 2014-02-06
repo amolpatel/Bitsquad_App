@@ -47,5 +47,5 @@
         android:background="@android:color/holo_blue_dark"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:onClick="register" />
+        android:onClick="toRegistrationScreen" />
 </RelativeLayout>

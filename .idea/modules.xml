@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Bitsquad App/Bitsquad App.iml" filepath="$PROJECT_DIR$/Bitsquad App/Bitsquad App.iml" />
       <module fileurl="file://$PROJECT_DIR$/BitsquadApp.iml" filepath="$PROJECT_DIR$/BitsquadApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bitsquad_App.iml" filepath="$PROJECT_DIR$/Bitsquad_App.iml" />
     </modules>
   </component>
 </project>

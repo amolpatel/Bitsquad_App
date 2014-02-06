@@ -3,7 +3,6 @@ package com.example.bitsquadapp;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class MainActivity extends Activity {
+public class RegistrationScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registration_screen);
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -31,7 +30,7 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.registration_screen, menu);
         return true;
     }
 
@@ -58,27 +57,9 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_registration_screen, container, false);
             return rootView;
         }
-    }
-
-    /**
-     * Called when the login button is clicked
-     * @param view
-     */
-    public void toLoginScreen(View view){
-        Intent loginScreenIntent = new Intent(this, LoginScreen.class);
-        startActivity(loginScreenIntent);
-    }
-
-    /**
-     * Called when the register button is clicked
-     * @param view
-     */
-    public void toRegistrationScreen(View view){
-        Intent registrationScreenIntent = new Intent(this, RegistrationScreen.class);
-        startActivity(registrationScreenIntent);
     }
 
 }
