@@ -12,6 +12,17 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/NewName"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:hint="Name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/NewUsername"
         android:editable="true"
         android:textColor="@android:color/darker_gray"
@@ -28,7 +39,7 @@
         android:layout_below="@+id/NewUsername"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:editable="false"
+        android:editable="true"
         android:hint="New Password"
         android:password="true"
         android:textColor="@android:color/darker_gray"
@@ -42,7 +53,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@android:color/darker_gray"
-        android:editable="false"
+        android:editable="true"
         android:hint="Confirm Password"
         android:textSize="30dp"
         android:password="true" />
@@ -56,17 +67,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="48dp"
         android:background="@android:color/holo_blue_dark"
-        android:textSize="25dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/NewName"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"
-        android:hint="Name" />
+        android:textSize="25dp"
+        android:clickable="true"
+        android:onClick="registerUser"/>
 
 </RelativeLayout>
