@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Application;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -64,12 +66,17 @@ public class LoginScreen extends Activity {
     public void onClickLoginCheck(View view){
         EditText userEdit   = (EditText)findViewById(R.id.userEditText);
         EditText passEdit = (EditText)findViewById(R.id.passEditText);
+        Context context = this.getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        CharSequence text;
         if(((MyApplication) getApplication()).userCheck(userEdit.getText().toString(),passEdit.getText().toString())) {
-            Log.d("Neal","true");
+           text = "Login Successful";
         }
         else {
-            Log.d("Neal","false");
+            text = "Login Failed";
         }
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     /**
