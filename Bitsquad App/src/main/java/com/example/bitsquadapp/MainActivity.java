@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,10 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class MainActivity extends Activity {
+import java.io.Serializable;
 
+import Model.UserDataBase;
+
+public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Neal","got to Main Activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -68,6 +73,7 @@ public class MainActivity extends Activity {
      * @param view
      */
     public void toLoginScreen(View view){
+        Log.d("Neal","got toLoginScreen");
         Intent loginScreenIntent = new Intent(this, LoginScreen.class);
         startActivity(loginScreenIntent);
     }

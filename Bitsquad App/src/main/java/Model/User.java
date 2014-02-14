@@ -1,4 +1,4 @@
-package com.example.bitsquadapp;
+package Model;
 
 /**
  * Created by Neal on 2/10/14.

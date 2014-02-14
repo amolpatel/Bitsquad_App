@@ -12,7 +12,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/userEditText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
@@ -24,8 +24,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/passEditText"
+        android:layout_below="@+id/userEditText"
         android:layout_centerHorizontal="true"
         android:editable="true"
         android:hint="Password"
@@ -42,5 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="48dp"
         android:background="@android:color/holo_blue_dark"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:clickable="true"
+        android:onClick="onClickLoginCheck" />
 </RelativeLayout>
