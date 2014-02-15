@@ -52,38 +52,61 @@ public class RegistrationScreen extends Activity {
 
 
     public void registerUser(View view){
-        EditText newUsername   = (EditText)findViewById(R.id.NewUsername);
-        EditText newName = (EditText)findViewById(R.id.NewName);
-        EditText newPassword = (EditText)findViewById(R.id.NewPassword);
-        EditText confirmPassword = (EditText)findViewById(R.id.ConfirmPassword);
+        String newUsername   = ((EditText)findViewById(R.id.NewUsername)).getText().toString();
+        String newName = ((EditText)findViewById(R.id.NewName)).getText().toString();
+        String newPassword = ((EditText)findViewById(R.id.NewPassword)).getText().toString();
+        String confirmPassword = ((EditText)findViewById(R.id.ConfirmPassword)).getText().toString();
 
 
         Context context = this.getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
         CharSequence text;
-
-        //
-        if(!newPassword.getText().toString().equals(confirmPassword.getText().toString())) {
-            text = "Re-type Password";
-            Toast toast = Toast.makeText(context, text, duration);
+        if(newUsername.equals("") || newName.equals("") || newPassword.equals("") ||
+                confirmPassword.equals("")){
+            text = "Please fill out all fields";
+            Toast toast = Toast.makeText(context,text,duration);
             toast.show();
         }
-
-        if(newUsername == null || newName == null || newPassword == null){
-            text="Please fill out all fields";
+        else if(!confirmPassword.equals(newPassword)){
+            text = "Passwords don't match";
+            Toast toast = Toast.makeText(context,text,duration);
+            toast.show();
+        }
+        else if(!((MyApplication) getApplication()).addUser(newName,newPassword,newUsername)){
+            text = "Username already taken";
             Toast toast = Toast.makeText(context,text,duration);
             toast.show();
         }
         else{
+            text = "Registration Successful";
+            Toast toast = Toast.makeText(context,text,duration);
+            toast.show();
+            Intent loginScreenIntent = new Intent(this, LoginScreen.class);
+            startActivity(loginScreenIntent);
+        }
+
+
+        /*
+        if(newUsername.equals("") || newName.equals("") || newPassword.equals("")){
+            text="Please fill out all fields";
+            Toast toast = Toast.makeText(context,text,duration);
+            toast.show();
+        }
+        else if(!newPassword.toString().equals(confirmPassword.toString())) {
+            text = "Re-type Password";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+        else{
             ((MyApplication) getApplication()).addUser(
-                    newName.getText().toString()
-                    , newPassword.getText().toString()
-                    , newUsername.getText().toString()
+                    newName.toString()
+                    , newPassword.toString()
+                    , newUsername.toString()
             );
 
             Intent loginScreenIntent = new Intent(this, LoginScreen.class);
             startActivity(loginScreenIntent);
-        }
+        }*/
     }
 
     /**

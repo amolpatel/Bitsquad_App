@@ -20,9 +20,11 @@ public class UserDataBase {
         users.put("admin",def);
     }
 
-    public void addUser(String name, String password, String userName, int id) {
+    public boolean addUser(String name, String password, String userName, int id) {
+        if(users.containsKey(userName)){return false;}
         User user = new User(name,password,userName,id);
         users.put(userName,user);
+        return true;
     }
 
     public Boolean verify(String userName, String password) {

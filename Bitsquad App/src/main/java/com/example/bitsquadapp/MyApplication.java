@@ -22,7 +22,7 @@ public class MyApplication extends Application {
         return users.verify(userName, password);
     }
 
-    public void addUser(String name, String password, String userName) {
-        users.addUser(name,password,userName,id++);
+    public boolean addUser(String name, String password, String userName) {
+       return users.addUser(name,password,userName,id++);
     }
 }
