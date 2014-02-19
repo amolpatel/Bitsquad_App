@@ -84,29 +84,6 @@ public class RegistrationScreen extends Activity {
             Intent loginScreenIntent = new Intent(this, LoginScreen.class);
             startActivity(loginScreenIntent);
         }
-
-
-        /*
-        if(newUsername.equals("") || newName.equals("") || newPassword.equals("")){
-            text="Please fill out all fields";
-            Toast toast = Toast.makeText(context,text,duration);
-            toast.show();
-        }
-        else if(!newPassword.toString().equals(confirmPassword.toString())) {
-            text = "Re-type Password";
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
-        else{
-            ((MyApplication) getApplication()).addUser(
-                    newName.toString()
-                    , newPassword.toString()
-                    , newUsername.toString()
-            );
-
-            Intent loginScreenIntent = new Intent(this, LoginScreen.class);
-            startActivity(loginScreenIntent);
-        }*/
     }
 
     /**
