@@ -33,6 +33,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.bitsquadapp.AccountsList"
+            android:label="@string/title_activity_accounts_list"
+            android:parentActivityName="com.example.bitsquadapp.LoginScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="LoginScreen" />
+        </activity>
     </application>
 
 </manifest>

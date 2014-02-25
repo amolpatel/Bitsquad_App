@@ -70,7 +70,11 @@ public class LoginScreen extends Activity {
         int duration = Toast.LENGTH_SHORT;
         CharSequence text;
         if(((MyApplication) getApplication()).userCheck(userEdit.getText().toString(),passEdit.getText().toString())) {
-           text = "Login Successful";
+            text = "Login Successful";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            Intent intent = new Intent(this, AccountsList.class);
+            startActivity(intent);
         }
         else {
             text = "Login Failed";
