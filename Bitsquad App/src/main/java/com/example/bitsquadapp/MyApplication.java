@@ -15,10 +15,16 @@ import Model.UserDataBase;
  */
 public class MyApplication extends Application {
 
-    private UserDataBase users = new UserDataBase();
-    private Random rand = new Random();
-    private int id = rand.nextInt();
+    private UserDataBase users;
+    private int id;
     private ArrayList<Account> accounts;
+
+    public MyApplication(){
+        users = new UserDatabase();
+        Random rand = new Random();
+        id = rand.nextInt();
+        accounts = new ArrayList<Account>();
+    }
 
     public boolean userCheck(String userName, String password) {
         Log.d("Neal", "userCheck called");
