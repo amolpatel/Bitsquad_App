@@ -19,15 +19,31 @@ public abstract class Transaction {
         return id;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
+
     public double getAmount() {
         return amount;
+    }
+
+    public void setAmount(double amount){
+        this.amount = amount;
     }
 
     public Date getRealTime() {
         return realTime;
     }
 
+    public void setRealTime(Date realTime){
+        this.realTime = realTime;
+    }
+
     public Date getUserTime() {
         return userTime;
+    }
+
+    public void setUserTime(Date userTime){
+        this.userTime = userTime;
     }
 }

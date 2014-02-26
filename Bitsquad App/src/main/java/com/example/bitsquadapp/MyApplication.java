@@ -17,17 +17,18 @@ public class MyApplication extends Application {
 
     private UserDataBase users;
     private int id;
-    private ArrayList<Account> accounts;
+    private User currentUser;
 
     public MyApplication(){
-        users = new UserDatabase();
+        users = new UserDataBase();
         Random rand = new Random();
         id = rand.nextInt();
-        accounts = new ArrayList<Account>();
+        currentUser = null;
     }
 
     public boolean userCheck(String userName, String password) {
         Log.d("Neal", "userCheck called");
+        this.currentUser = users.getCurrentUser(userName,password);
         return users.verify(userName, password);
     }
 
@@ -36,11 +37,11 @@ public class MyApplication extends Application {
     }
 
     public ArrayList<Account> getAccounts(){
-        return accounts;
+        return currentUser.getAccounts();
     }
 
     public void createAccount(String fullName, String displayName, double balance, double interestRate){
-        Account account = new Account(fullName,displayName,balance,interestRate);
-        accounts.add(account);
+      currentUser.createAccount(fullName,displayName,balance,interestRate);
     }
+
 }

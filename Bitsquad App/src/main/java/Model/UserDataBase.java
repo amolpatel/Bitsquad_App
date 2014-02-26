@@ -36,4 +36,13 @@ public class UserDataBase {
             return false;
         }
     }
+
+    public User getCurrentUser(String userName, String password){
+        if(users.containsKey(userName)){
+            if(users.get(userName).checkPassword(password)){
+                return users.get(userName);
+            }
+        }
+        return null;
+    }
 }

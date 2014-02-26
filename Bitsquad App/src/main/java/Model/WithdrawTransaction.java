@@ -18,7 +18,15 @@ public class WithdrawTransaction extends Transaction {
         return withdrawReason;
     }
 
+    public void setWithdrawReason(String withdrawReason){
+        this.withdrawReason = withdrawReason;
+    }
+
     public String getCategory() {
         return category;
+    }
+
+    public void setCategory(String category){
+        this.category = category;
     }
 }
