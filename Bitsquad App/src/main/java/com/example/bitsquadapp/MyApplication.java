@@ -40,8 +40,8 @@ public class MyApplication extends Application {
         return currentUser.getAccounts();
     }
 
-    public void createAccount(String fullName, String displayName, double balance, double interestRate){
-      currentUser.createAccount(fullName,displayName,balance,interestRate);
+    public void createAccount(String fullName, String displayName, double interestRate){
+      currentUser.createAccount(fullName,displayName,0,interestRate);
     }
 
 }

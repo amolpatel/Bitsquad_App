@@ -1,5 +1,6 @@
 package com.example.bitsquadapp;
 
+import Model.Account;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.ListActivity;
@@ -77,7 +78,7 @@ public class AccountsList extends ListActivity implements CreateAccountDialog.Cr
         }
         else {
             text = "Account Created!";
-           ((MyApplication) getApplication()).createAcount(newAccountName, newDisplayName, newInterest);
+           ((MyApplication) getApplication()).createAccount(newAccountName, newDisplayName, newInterest);
             adapter.notifyDataSetChanged();
         }
         Toast toast = Toast.makeText(context, text, duration);
