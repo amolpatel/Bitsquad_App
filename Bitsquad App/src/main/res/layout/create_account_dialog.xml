@@ -25,4 +25,12 @@
         android:textSize="20dp"
         android:inputType="numberDecimal"
         />
+    <EditText
+        android:id="@+id/NewAccountBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Balance ($)"
+        android:textSize="20dp"
+        android:inputType="numberDecimal"
+        />
 </LinearLayout>
