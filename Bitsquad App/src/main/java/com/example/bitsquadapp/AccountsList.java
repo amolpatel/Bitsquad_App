@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import Model.Account;
+
 
 public class AccountsList extends ListActivity implements CreateAccountDialog.CreateAccountListener{
 
@@ -38,7 +40,7 @@ public class AccountsList extends ListActivity implements CreateAccountDialog.Cr
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.accounts_list, menu);
         return true;
@@ -62,13 +64,19 @@ public class AccountsList extends ListActivity implements CreateAccountDialog.Cr
     }
 
     public void onDialogPositiveClick(DialogFragment dialogFragment){
+        //Get EditTexts from the dialog
         EditText name = (EditText)dialogFragment.getDialog().findViewById(R.id.NewAccountName);
         EditText display = (EditText)dialogFragment.getDialog().findViewById(R.id.NewAccountDisplayName);
         EditText interest = (EditText)dialogFragment.getDialog().findViewById(R.id.NewAcountInterest);
+        EditText balance = (EditText)dialogFragment.getDialog().findViewById(R.id.NewAccountBalance);
 
+        //Get texts from dialog
         String newAccountName = name.getText().toString();
         String newDisplayName = display.getText().toString();
-        double newInterest = new Double(interest.getText().toString());
+        String inter = interest.getText().toString();
+        String bal = balance.getText().toString();
+        double newInterest, newBalance;
+
 
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
@@ -77,9 +85,22 @@ public class AccountsList extends ListActivity implements CreateAccountDialog.Cr
             text = "Account Creation Failed!";
         }
         else {
-            text = "Account Created!";
-           ((MyApplication) getApplication()).createAccount(newAccountName, newDisplayName, newInterest);
-            adapter.notifyDataSetChanged();
+            //Set strings to "0" if empty
+            if(bal.equals(""))
+               bal = bal + "0";
+            if(inter.equals(""))
+                inter = inter + "0";
+            //Try to parse the strings
+            try{
+                newInterest = Double.parseDouble(inter);
+                newBalance = Double.parseDouble(bal);
+                text = "Account Created!";
+                ((MyApplication) getApplication()).createAccount(newAccountName, newDisplayName, newBalance, newInterest);
+                adapter.notifyDataSetChanged();
+            }catch (Exception e){
+                //Catch NumberFormatErrors
+                text = "Account Creation Failed!";
+            }
         }
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
