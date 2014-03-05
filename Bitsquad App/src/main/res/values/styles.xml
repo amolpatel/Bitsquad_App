@@ -3,26 +3,74 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
     </style>
-    <style name="myTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/myTheme.ActionBar</item>
-    </style>
-    <style name="myTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:titleTextStyle">@style/myTheme.ActionBar.Text</item>
-    </style>
-    <style name="myTheme.ActionBar.Text" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-    <style name="MainTheme" parent="android:Theme.Holo.Light">
-        <item name="android:background">@color/Theme_Color</item>
-        <item name="android:windowBackground">@color/Theme_Color</item>
-    </style>
-    <style name="AccountsTheme" parent="android:Theme.Holo.Light">
-        <item name="android:background">@android:color/white</item>
+
+
+    <style name="Theme.Basecontenttheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_basecontenttheme</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Basecontenttheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Basecontenttheme</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Basecontenttheme</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Basecontenttheme</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Basecontenttheme</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_basecontenttheme</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_basecontenttheme</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Basecontenttheme</item>
+
+        <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Basecontenttheme.Widget</item>
+
     </style>
-    <style name="ActionBar" parent="android:Widget.ActionBar">
+
+    <style name="ActionBar.Solid.Basecontenttheme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_basecontenttheme</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_basecontenttheme</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_basecontenttheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Basecontenttheme</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Basecontenttheme" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_basecontenttheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Basecontenttheme</item>
+    </style>
+
+    <style name="PopupMenu.Basecontenttheme" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_basecontenttheme</item>
+    </style>
+
+    <style name="DropDownListView.Basecontenttheme" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_basecontenttheme</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Basecontenttheme" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_basecontenttheme</item>
+    </style>
+
+    <style name="DropDownNav.Basecontenttheme" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_basecontenttheme</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_basecontenttheme</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_basecontenttheme</item>
+    </style>
+
+    <style name="ProgressBar.Basecontenttheme" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_basecontenttheme</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Basecontenttheme" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_basecontenttheme</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Basecontenttheme.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Basecontenttheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Basecontenttheme</item>
+    </style>
+
+    <style name="MainTheme">
+        <item name="android:windowBackground">@color/Theme_Color</item>
         <item name="android:background">@color/Theme_Color</item>
     </style>
+
     <style name="TextBoxMainTheme" parent="android:Widget.EditText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -30,6 +78,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
     </style>
+
     <style name="ButtonMain">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">fill_parent</item>
@@ -38,6 +87,7 @@
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textColor">@color/Theme_Color</item>
     </style>
+
     <style name="TextViewMain">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -45,12 +95,14 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="BitsquadTextMain" parent="TextViewMain">
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:text">Bitsquad</item>
         <item name="android:textSize">55sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="EditTextCreateAccount">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -58,6 +110,7 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textColorHint">@android:color/darker_gray</item>
     </style>
+
     <style name="ButtonAccounts">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -65,6 +118,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/text_size</item>
     </style>
+
     <color name="Theme_Color">@android:color/holo_green_dark</color>
 
 </resources>
