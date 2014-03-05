@@ -12,6 +12,7 @@ public class User {
     private String name;
     private int id;
     private ArrayList<Account> accounts;
+    private Account currentAccount;
 
     public User(){}
 
@@ -68,4 +69,7 @@ public class User {
         accounts.add(account);
     }
 
+    public void setCurrentAccount(Account account){currentAccount = account;}
+
+    public Account getCurrentAccount(){return currentAccount;}
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    style="@style/MainTheme">
+    <TextView
+        android:id="@+id/BitsquadTextRS"
+        style="@style/BitsquadTextMain"
+        android:layout_marginTop="48dp"/>
+    <EditText
+        android:id="@+id/NewName"
+        style="@style/TextBoxMainTheme"
+        android:layout_below="@+id/BitsquadTextRS"
+        android:layout_marginTop="48dp"
+        android:hint="Name" />
+    <EditText
+        android:id="@+id/NewUsername"
+        style="@style/TextBoxMainTheme"
+        android:layout_below="@+id/NewName"
+        android:hint="Username" />
+    <EditText
+        android:id="@+id/NewPassword"
+        style="@style/TextBoxMainTheme"
+        android:layout_below="@+id/NewUsername"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/ConfirmPassword"
+        style="@style/TextBoxMainTheme"
+        android:layout_below="@+id/NewPassword"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"/>
+    <Button
+        android:id="@+id/RegisterButton"
+        style="@style/ButtonMain"
+        android:layout_below="@+id/ConfirmPassword"
+        android:text="Register"
+        android:onClick="registerUser"/>
+</RelativeLayout>

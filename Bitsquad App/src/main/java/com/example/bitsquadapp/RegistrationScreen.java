@@ -1,61 +1,36 @@
 package com.example.bitsquadapp;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * Created by Kurt on 3/3/14.
+ */
 public class RegistrationScreen extends Activity {
+    private EditText nameInput, userNameInput, passwordInput, confirmPasswordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration_screen);
+        setContentView(R.layout.registration_screen);
 
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        nameInput = (EditText) findViewById(R.id.NewName);
+        userNameInput = (EditText) findViewById(R.id.NewUsername);
+        passwordInput = (EditText) findViewById(R.id.NewPassword);
+        confirmPasswordInput = (EditText) findViewById(R.id.ConfirmPassword);
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.registration_screen, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
     public void registerUser(View view){
-        String newUsername   = ((EditText)findViewById(R.id.NewUsername)).getText().toString();
-        String newName = ((EditText)findViewById(R.id.NewName)).getText().toString();
-        String newPassword = ((EditText)findViewById(R.id.NewPassword)).getText().toString();
-        String confirmPassword = ((EditText)findViewById(R.id.ConfirmPassword)).getText().toString();
+        String newUsername   = userNameInput.getText().toString();
+        String newName = nameInput.getText().toString();
+        String newPassword = passwordInput.getText().toString();
+        String confirmPassword = confirmPasswordInput.getText().toString();
 
 
         Context context = this.getApplicationContext();
@@ -81,25 +56,9 @@ public class RegistrationScreen extends Activity {
             text = "Registration Successful";
             Toast toast = Toast.makeText(context,text,duration);
             toast.show();
-            Intent loginScreenIntent = new Intent(this, LoginScreen.class);
-            startActivity(loginScreenIntent);
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntent);
+            this.finish();
         }
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_registration_screen, container, false);
-            return rootView;
-        }
-    }
-
 }

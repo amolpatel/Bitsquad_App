@@ -8,5 +8,22 @@
     <string name="title_activity_registration_screen">Registration</string>
     <string name="title_activity_accounts_list">AccountsList</string>
     <string name="title_activity_create_account_screen">CreateAccountScreen</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string-array name="transaction_types">
+        <item>Deposit</item>
+        <item>Withdrawal</item>
+    </string-array>
+    <string-array name="withdrawal_types">
+        <item>Rent</item>
+        <item>Food</item>
+        <item>Clothes</item>
+        <item>Entertainment</item>
+    </string-array>
+    <string-array name="deposit_types">
+        <item>Salary</item>
+        <item>Interest</item>
+        <item>Gift</item>
+    </string-array>
 
 </resources>

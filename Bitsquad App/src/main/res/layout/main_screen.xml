@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    style="@style/MainTheme">
+    <TextView
+        android:id="@+id/BitsquadTextMS"
+        style="@style/BitsquadTextMain"
+        android:layout_marginTop="96dp"/>
+    <EditText
+        android:id="@+id/Username"
+        style="@style/TextBoxMainTheme"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/BitsquadTextMS"
+        android:hint="Username"
+        />
+    <EditText
+        android:id="@+id/Password"
+        style="@style/TextBoxMainTheme"
+        android:layout_below="@+id/Username"
+        android:hint="Password"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/LoginButton"
+        style="@style/ButtonMain"
+        android:layout_below="@+id/Password"
+        android:text="Login"
+        android:onClick="login"
+        />
+    <TextView
+        android:id="@+id/RegisterText"
+        style="@style/TextViewMain"
+        android:layout_alignParentBottom="true"
+        android:lines="2"
+        android:text="Aren't a Bitsquad user?\nRegister here!"
+        android:textSize="15dp"
+        android:onClick="toRegistrationScreen"
+        android:clickable="true"
+        />
+</RelativeLayout>

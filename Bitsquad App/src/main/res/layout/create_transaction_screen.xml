@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        style="@style/AccountsTheme"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/TransactionType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size"
+                android:text="Transaction type"/>
+            <Spinner
+                android:id="@+id/TypeSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginLeft="48dp">
+            </Spinner>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/TransactionSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size"
+                android:text="Transaction source"/>
+            <Spinner
+                android:id="@+id/SourceSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="24dp">
+            </Spinner>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <EditText
+                android:id="@+id/NewTransactionAmount"
+                style="@style/EditTextCreateAccount"
+                android:hint="Amount ($)"
+                android:inputType="numberDecimal"/>
+            <EditText
+                android:id="@+id/WithdrawalReason"
+                style="@style/EditTextCreateAccount"
+                android:layout_below="@+id/NewTransactionAmount"
+                android:hint="Reason"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/CreateTransaction"
+                style="@style/ButtonAccounts"
+                android:layout_above="@+id/CancelNewTransaction"
+                android:layout_marginBottom="4dp"
+                android:text="Create transaction"/>
+            <Button
+                android:id="@+id/CancelNewTransaction"
+                style="@style/ButtonAccounts"
+                android:layout_alignParentBottom="true"
+                android:layout_above="@+id/CancelNewAccount"
+                android:text="Cancel"/>
+            </RelativeLayout>
+</LinearLayout>

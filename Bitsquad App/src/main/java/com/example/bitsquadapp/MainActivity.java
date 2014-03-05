@@ -1,90 +1,57 @@
 package com.example.bitsquadapp;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import java.io.Serializable;
-
-import Model.UserDataBase;
-
+/**
+ * Created by Kurt on 3/3/14.
+ */
 public class MainActivity extends Activity {
+    private EditText userNameInput, passwordInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Neal","got to Main Activity");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_screen);
 
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+        userNameInput = (EditText) findViewById(R.id.Username);
+        passwordInput = (EditText) findViewById(R.id.Password);
+    }
+
+    public void login(View view){
+        String username = userNameInput.getText().toString();
+        String password = passwordInput.getText().toString();
+
+        Context context = this.getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        String text = "";
+
+        if(username.equals("") || password.equals("")){
+            text = "Please fill out all fields";
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        else if(((MyApplication)getApplication()).userCheck(username, password)){
+            text = "Login Successful";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            Intent intent = new Intent(this, BaseContentActivity.class);
+            startActivity(intent);
         }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
+        else{
+            text = "Incorrect username or password";
         }
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
     }
 
-    /**
-     * Called when the login button is clicked
-     * @param view
-     */
-    public void toLoginScreen(View view){
-        Log.d("Neal","got toLoginScreen");
-        Intent loginScreenIntent = new Intent(this, LoginScreen.class);
-        startActivity(loginScreenIntent);
-    }
-
-    /**
-     * Called when the register button is clicked
-     * @param view
-     */
     public void toRegistrationScreen(View view){
         Intent registrationScreenIntent = new Intent(this, RegistrationScreen.class);
         startActivity(registrationScreenIntent);
     }
-
 }
+

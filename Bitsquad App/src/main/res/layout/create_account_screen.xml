@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        style="@style/AccountsTheme">
+        <EditText
+            android:id="@+id/NewAccountName"
+            style="@style/EditTextCreateAccount"
+            android:layout_marginTop="48dp"
+            android:hint="Name"
+            />
+        <EditText
+            android:id="@+id/NewAccountDisplayName"
+            style="@style/EditTextCreateAccount"
+            android:layout_below="@+id/NewAccountName"
+            android:hint="Display name"
+            />
+        <EditText
+            android:id="@+id/NewAccountInterest"
+            style="@style/EditTextCreateAccount"
+            android:layout_below="@+id/NewAccountDisplayName"
+            android:hint="Interest (%)"
+            android:inputType="numberDecimal"/>
+        <Button
+            android:id="@+id/CreateAccountButton"
+            style="@style/ButtonAccounts"
+            android:layout_above="@+id/CancelNewAccount"
+            android:layout_marginBottom="4dp"
+            android:text="Create account"/>
+        <Button
+            android:id="@+id/CancelNewAccount"
+            style="@style/ButtonAccounts"
+            android:layout_alignParentBottom="true"
+            android:text="Cancel"/>
+</RelativeLayout>

@@ -1,8 +1,70 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
     </style>
+    <style name="myTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/myTheme.ActionBar</item>
+    </style>
+    <style name="myTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/myTheme.ActionBar.Text</item>
+    </style>
+    <style name="myTheme.ActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="MainTheme" parent="android:Theme.Holo.Light">
+        <item name="android:background">@color/Theme_Color</item>
+        <item name="android:windowBackground">@color/Theme_Color</item>
+    </style>
+    <style name="AccountsTheme" parent="android:Theme.Holo.Light">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+    <style name="ActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">@color/Theme_Color</item>
+    </style>
+    <style name="TextBoxMainTheme" parent="android:Widget.EditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+    <style name="ButtonMain">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@color/Theme_Color</item>
+    </style>
+    <style name="TextViewMain">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="BitsquadTextMain" parent="TextViewMain">
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:text">Bitsquad</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="EditTextCreateAccount">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+    </style>
+    <style name="ButtonAccounts">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/Theme_Color</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+    <color name="Theme_Color">@android:color/holo_green_dark</color>
 
 </resources>

@@ -3,6 +3,7 @@ package com.example.bitsquadapp;
 import Model.Account;
 import android.app.Application;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -44,4 +45,7 @@ public class MyApplication extends Application {
       currentUser.createAccount(fullName,displayName,balance,interestRate);
     }
 
+    public void setCurrentAccount(Account account){currentUser.setCurrentAccount(account);}
+
+    public Account getCurrentAccount(){return currentUser.getCurrentAccount();}
 }
