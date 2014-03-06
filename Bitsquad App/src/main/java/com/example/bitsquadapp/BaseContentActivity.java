@@ -40,7 +40,7 @@ public class BaseContentActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         openDrawerTitle = "Accounts";
-        closedDrawerTitle = "Create Account";
+        closedDrawerTitle = "Bitsquad";
         setContentView(R.layout.nav_drawer);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         listView = (ListView) findViewById(R.id.left_drawer);
@@ -147,39 +147,24 @@ public class BaseContentActivity extends Activity {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
             FragmentManager fragmentManager =  getFragmentManager();
-            CreateTransactionFragment tFrag =
-                    (CreateTransactionFragment) fragmentManager.findFragmentByTag(TAG_CREATE_TRANSACTION);
-            CreateAccountFragment aFrag =
-                    (CreateAccountFragment) fragmentManager.findFragmentByTag(TAG_CREATE_ACCOUNT);
             //If footer (create account)
             if(position == (parent.getCount() - 1)){
-                if(aFrag == null){
+                //If the create account isn't being displayed/doesn't exist
+                if(!closedDrawerTitle.equals("Create Account")){
                     fragmentManager.beginTransaction()
-                            .replace(R.id.content_frame, new CreateAccountFragment(), TAG_CREATE_ACCOUNT)
-                            .commit();
+                            .replace(R.id.content_frame, new CreateAccountFragment(), TAG_CREATE_ACCOUNT).commit();
+                    closedDrawerTitle = "Create Account";
                 }
-                else if(!aFrag.isVisible()){
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content_frame, aFrag, TAG_CREATE_ACCOUNT)
-                            .commit();
-                }
-                closedDrawerTitle = "Create Account";
-                Toast toast = Toast.makeText(getApplicationContext(), "Create Account", Toast.LENGTH_SHORT);
-                toast.show();
             }
             else {
-                ((MyApplication) getApplication()).setCurrentAccount((Account)parent.getItemAtPosition(position));
-                if(tFrag == null){
+                Account selected = (Account)parent.getItemAtPosition(position);
+                ((MyApplication) getApplication()).setCurrentAccount(selected);
+                //If the selected acount from the drawer isn't the one currently displayed
+                if(!selected.getDisplayName().equals(closedDrawerTitle)){
                     fragmentManager.beginTransaction()
-                            .replace(R.id.content_frame, new CreateTransactionFragment(), TAG_CREATE_TRANSACTION)
-                            .commit();
-                }
-                else if(!tFrag.isVisible()){
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content_frame, tFrag, TAG_CREATE_TRANSACTION)
-                            .commit();
-                }
+                            .replace(R.id.content_frame, new CreateTransactionFragment(), TAG_CREATE_ACCOUNT).commit();
                 closedDrawerTitle = ((MyApplication) getApplication()).getCurrentAccount().getDisplayName();
+                }
             }
             drawerLayout.closeDrawer(listView);
         }
