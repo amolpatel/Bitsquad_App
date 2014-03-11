@@ -46,7 +46,10 @@ public class MyApplication extends Application {
     public boolean userCheck(String userName, String password) {
         Log.d("Neal", "userCheck called");
         User checkUser = users.get(userName);
-        if(!userName.equals(checkUser.getUserName()) || !password.equals(checkUser.getPass())){
+        if(checkUser == null){
+            return false;
+        }
+        else if(!userName.equals(checkUser.getUserName()) || !password.equals(checkUser.getPass())){
             return false;
         }
         else{
