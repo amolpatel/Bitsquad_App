@@ -11,7 +11,7 @@ public abstract class Transaction {
 
     public Transaction(Date realTime, Date userTime, double amount){
         this.realTime = realTime;
-        this. userTime = userTime;
+        this.userTime = userTime;
         this.amount = amount;
     }
 
@@ -46,4 +46,6 @@ public abstract class Transaction {
     public void setUserTime(Date userTime){
         this.userTime = userTime;
     }
+
+    public abstract double process();
 }

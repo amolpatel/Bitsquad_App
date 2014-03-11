@@ -89,15 +89,12 @@ public class CreateTransactionFragment extends Fragment implements AdapterView.O
                 amt = Double.parseDouble(amount);
                 Date currentDate = new Date(System.currentTimeMillis());
                 Date userDate = new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
-                Account act = ((MyApplication) getActivity().getApplication()).getCurrentAccount();
-                Transaction transaction;
                 if(type.equals("Deposit")){
-                    transaction = new DepositTransaction(currentDate,userDate,amt,source);
+                    ((MyApplication) getActivity().getApplication()).createTransaction(currentDate,userDate,amt,source);
                 }
                 else {
-                    transaction = new WithdrawTransaction(currentDate, userDate, amt, source, reason);
+                    ((MyApplication) getActivity().getApplication()).createTransaction(currentDate, userDate, amt, source, reason);
                 }
-                act.processTransaction(transaction);
                 ((BaseContentActivity) getActivity()).notifySetChange();
                 text = "Transaction complete";
             }catch (Exception e){

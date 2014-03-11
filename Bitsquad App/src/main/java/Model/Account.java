@@ -11,11 +11,10 @@ public class Account {
     private ArrayList<Transaction> transactionHistory;
 
     public Account(){
-
+        transactionHistory = new ArrayList<Transaction>();
     }
 
     public Account(String fullName, String displayName, double balance, double interestRate){
-        this.id = id;
         this.fullName = fullName;
         this.displayName = displayName;
         this.balance = balance;
@@ -24,19 +23,16 @@ public class Account {
     }
 
     public void processTransaction(Transaction transaction){
-        if(transaction instanceof DepositTransaction){
-            balance += transaction.getAmount();
-        }
-        else if(transaction instanceof WithdrawTransaction){
-                balance -= transaction.getAmount();
-        }else{
-            return ;
-        }
+        balance += transaction.process();
         transactionHistory.add(transaction);
     }
 
     public ArrayList<Transaction> getTransactionHistory(){
         return transactionHistory;
+    }
+
+    public void setTransactionHistory(ArrayList<Transaction> transactionHistory){
+        this.transactionHistory = transactionHistory;
     }
 
     public String getFullName() {
@@ -50,6 +46,7 @@ public class Account {
     public String getDisplayName(){
         return displayName;
     }
+
     public void setDisplayName(String displayName){
         this.displayName = displayName;
     }
@@ -77,6 +74,7 @@ public class Account {
     public void setId(int id){
         this.id = id;
     }
+
 
     public String toString(){
         return displayName;

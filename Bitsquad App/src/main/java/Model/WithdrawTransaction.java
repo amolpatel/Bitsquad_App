@@ -29,4 +29,8 @@ public class WithdrawTransaction extends Transaction {
     public void setCategory(String category){
         this.category = category;
     }
+
+    public double process(){
+        return -getAmount();
+    }
 }

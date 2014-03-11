@@ -18,4 +18,8 @@ public class DepositTransaction extends Transaction{
     public void setMoneySource(String moneySource){
         this.moneySource = moneySource;
     }
+
+    public double process(){
+        return getAmount();
+    }
 }

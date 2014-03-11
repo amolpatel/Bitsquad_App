@@ -14,18 +14,15 @@ public class User {
     private ArrayList<Account> accounts;
     private Account currentAccount;
 
-    public User(){}
-
-    public User(String name,String password,String userName,int id) {
-        this.userName = userName;
-        this.pass = password;
-        this.name = name;
-        this.id = id;
+    public User(){
         accounts = new ArrayList<Account>();
     }
 
-    public Boolean checkPassword(String password) {
-        return this.pass.equals(password);
+    public User(String name,String password,String userName) {
+        this.userName = userName;
+        this.pass = password;
+        this.name = name;
+        accounts = new ArrayList<Account>();
     }
 
     public int getId() {
@@ -64,9 +61,8 @@ public class User {
         return accounts;
     }
 
-    public void createAccount(String fullName, String displayName, double balance, double interestRate){
-        Account account = new Account(fullName,displayName,balance,interestRate);
-        accounts.add(account);
+    public void setAccounts(ArrayList<Account> accounts){
+        this.accounts = accounts;
     }
 
     public void setCurrentAccount(Account account){currentAccount = account;}
