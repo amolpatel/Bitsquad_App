@@ -42,7 +42,6 @@ public class CreateTransactionFragment extends Fragment implements AdapterView.O
 
         datePicker = (DatePicker) view.findViewById(R.id.DatePicker);
         datePicker.setMaxDate(System.currentTimeMillis());
-        datePicker.setCalendarViewShown(false);
         transactionSource = (Spinner) view.findViewById(R.id.SourceSpinner);
         transactionType = (Spinner) view.findViewById(R.id.TypeSpinner);
         transactionAmount = (EditText) view.findViewById(R.id.NewTransactionAmount);

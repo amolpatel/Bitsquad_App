@@ -13,7 +13,7 @@
                 android:id="@+id/TransactionType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="24dp"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size"
                 android:text="Transaction type"/>
@@ -21,7 +21,7 @@
                 android:id="@+id/TypeSpinner"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginLeft="48dp">
             </Spinner>
         </LinearLayout>
@@ -63,7 +63,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/WithdrawalReason"
-                android:id="@+id/DatePicker">
+                android:id="@+id/DatePicker"
+                android:calendarViewShown="false">
             </DatePicker>
             <Button
                 android:id="@+id/CreateTransaction"
