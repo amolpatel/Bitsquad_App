@@ -59,6 +59,12 @@
                 android:layout_below="@+id/NewTransactionAmount"
                 android:hint="Reason"
                 android:visibility="gone"/>
+            <DatePicker
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/WithdrawalReason"
+                android:id="@+id/DatePicker">
+            </DatePicker>
             <Button
                 android:id="@+id/CreateTransaction"
                 style="@style/ButtonAccounts"

@@ -3,7 +3,6 @@ package com.example.bitsquadapp;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -33,11 +34,15 @@ public class CreateTransactionFragment extends Fragment implements AdapterView.O
     private Spinner transactionType, transactionSource;
     private ArrayAdapter sources, types;
     private EditText transactionAmount, withdrawalReason;
+    private DatePicker datePicker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.create_transaction_screen, container, false);
 
+        datePicker = (DatePicker) view.findViewById(R.id.DatePicker);
+        datePicker.setMaxDate(System.currentTimeMillis());
+        datePicker.setCalendarViewShown(false);
         transactionSource = (Spinner) view.findViewById(R.id.SourceSpinner);
         transactionType = (Spinner) view.findViewById(R.id.TypeSpinner);
         transactionAmount = (EditText) view.findViewById(R.id.NewTransactionAmount);
@@ -71,6 +76,7 @@ public class CreateTransactionFragment extends Fragment implements AdapterView.O
         String amount = transactionAmount.getText().toString();
         String reason = withdrawalReason.getText().toString();
 
+
         Context context = getActivity().getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
         CharSequence text;
@@ -82,13 +88,14 @@ public class CreateTransactionFragment extends Fragment implements AdapterView.O
             try {
                 amt = Double.parseDouble(amount);
                 Date currentDate = new Date(System.currentTimeMillis());
+                Date userDate = new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
                 Account act = ((MyApplication) getActivity().getApplication()).getCurrentAccount();
                 Transaction transaction;
                 if(type.equals("Deposit")){
-                    transaction = new DepositTransaction(currentDate,currentDate,amt,source);
+                    transaction = new DepositTransaction(currentDate,userDate,amt,source);
                 }
                 else {
-                    transaction = new WithdrawTransaction(currentDate, currentDate, amt, source, reason);
+                    transaction = new WithdrawTransaction(currentDate, userDate, amt, source, reason);
                 }
                 act.processTransaction(transaction);
                 ((BaseContentActivity) getActivity()).notifySetChange();
